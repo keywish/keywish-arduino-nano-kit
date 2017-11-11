@@ -24,11 +24,11 @@
  *
  * [Title]    fire sensor control buzzer turn on/off
  * [diagram]
- *         Arduino PIN 0   ===================  fire sensor pin
+ *         Arduino PIN 5   ===================  fire sensor pin
  *         Arduino PIN 9   ===================  Active buzzer positive pole
  */
- 
-int fire_pin = A0 ;     // define analog 0 pin for fire-sensor pin
+
+int fire_pin = A5 ;     // define analog 5 pin for fire-sensor pin
 int buzzer = 9 ;        // buzzer dirver pin
 int val = 0;
 int count = 0 ;
@@ -43,17 +43,19 @@ void loop()
 {
     val = analogRead(fire_pin);    // get fire-sensor analog value
     Serial.println(val);
-    if( val > 600 )                // get value > 600 counet add
+    if( val < 600 )                // get value > 600 counet add
     {
         count++ ;
-    }else
+    }
+    else
     {
        count = 0 ;
     }
     if( count >= 5 )              // count > 5 ensure infrared radiation found and give an alarm
     {
         digitalWrite(buzzer , HIGH );
-    } else
+    }
+    else
     {
         digitalWrite(buzzer , LOW );   // disable an alarm
     }
