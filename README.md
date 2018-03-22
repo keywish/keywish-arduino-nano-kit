@@ -12,7 +12,7 @@ The latest information download address:https://github.com/keywish/arduino-nano-
 
 # Required Best Buy Links
 [Buy on Amazon](https://www.amazon.com/dp/B077ZN85MZ) </br>
-[Buy on Aliexpress](https://www.aliexpress.com/store/product/KeyWish-Super-RFID-Sensor-Starter-Kit-With-Tutorial-28-Lessons-For-Arduino-UNO-R3-With-Rain/3269016_32841900322.html?spm=2114.12010610.0.0.616016e05tP5S8)
+[Buy on Aliexpress](https://www.aliexpress.com/store/product/Keywish-Nano-Super-Starter-Kit-With-Detailed-Tutorial-11-Lessons-User-Manual-Code-Library-For-Arduino/3269016_32845813810.html?spm=2114.12010615.0.0.3dc454149f6k4x)
 
 
 
