@@ -15,5 +15,5 @@ The latest information download address:https://github.com/keywish/arduino-nano-
 [Buy on Aliexpress](https://www.aliexpress.com/store/product/Keywish-Nano-Super-Starter-Kit-With-Detailed-Tutorial-11-Lessons-User-Manual-Code-Library-For-Arduino/3269016_32845813810.html?spm=2114.12010615.0.0.3dc454149f6k4x)
 
 # download method
-![](https://github.com/keywish/keywish-arduino-nano-kit/raw/master/image/Download.png)
+![](https://github.com/keywish/keywish-arduino-nano-kit/raw/master/image/Image.png)
 
