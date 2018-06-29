@@ -20,30 +20,45 @@
  * This program is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
  * or FITNESS FOR A PARTICULAR PURPOSE.
- *
- *
- * [Title]    keypad control led light
- * [diagram]
- *         Arduino PIN 11  ===================  led control gpio
- *         Arduino PIN 7   ===================  keypad pin
- */
-int led_out = 11 ;  //GPIO 11  LED pin
-int keypad_pin = 7; //GPIO 7 key pin
-int value;
+
+
+   [Title]    product two frequeces sound
+   [diagram]
+             Arduino  pin8  ===================   buzzer positive wire
+
+*/
+int buzzer = 8;
+void frequence_1(void)    // 1k HZ
+{
+  int i ;
+  for (i = 0; i < 80; i++)
+  {
+    digitalWrite(buzzer, HIGH); //sound production
+    delay(1);
+    digitalWrite(buzzer, LOW);
+    delay(1);
+  }
+}
+
+void frequency_2(void)    // 500 HZ
+{
+  int i ;
+  for (i = 0; i < 100; i++)
+  {
+    digitalWrite(buzzer, HIGH); //sound production
+    delay(2);
+    digitalWrite(buzzer, LOW);
+    delay(2);
+  }
+}
+
 void setup()
 {
-  pinMode(led_out,OUTPUT);    		// init led pin output
-  pinMode(keypad_pin,INPUT);          // init key pin input
+  pinMode(buzzer, OUTPUT);
 }
 void loop()
 {
-  value = digitalRead(keypad_pin);    // read key pad pin vaule
-  if( value == LOW )
-    {
-      digitalWrite(led_out,LOW);      // if key value is down  turn off LED
-    }
-    else
-      {
-        digitalWrite(led_out,HIGH);     // if key value is down  turn on LED
-      }
+  frequence_1();
+  delay(100);
+  frequency_2();
 }

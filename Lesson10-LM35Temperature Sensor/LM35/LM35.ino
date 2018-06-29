@@ -22,28 +22,27 @@
  * or FITNESS FOR A PARTICULAR PURPOSE.
  *
  *
- * [Title]    keypad control led light
- * [diagram]
- *         Arduino PIN 11  ===================  led control gpio
- *         Arduino PIN 7   ===================  keypad pin
+ * [Title]
+ * [Diagram]
+
  */
-int led_out = 11 ;  //GPIO 11  LED pin
-int keypad_pin = 7; //GPIO 7 key pin
-int value;
+int Temp_Pin = A0;              // analog pin line LM35 numble 2 wire
+int val;  
+int dat;  
+float voltage = 0.0 ;
 void setup()
 {
-  pinMode(led_out,OUTPUT);    		// init led pin output
-  pinMode(keypad_pin,INPUT);          // init key pin input
+    Serial.begin(115200);       //init serial Baud rate 115200
 }
 void loop()
 {
-  value = digitalRead(keypad_pin);    // read key pad pin vaule
-  if( value == LOW )
-    {
-      digitalWrite(led_out,LOW);      // if key value is down  turn off LED
-    }
-    else
-      {
-        digitalWrite(led_out,HIGH);     // if key value is down  turn on LED
-      }
+    val = analogRead(Temp_Pin);       //  read analog raw data
+    voltage = ( ( float )val )/1023;
+    voltage = voltage * 5 ;            // convert analog value to real voltage
+    dat =  voltage * 100;               // convert voltage to temprature
+    Serial.print("Current Temp : ");
+    Serial.print(dat);
+    Serial.println("C"); 
+    delay(500);                          // Delay 0.5 s
 }
+

@@ -22,28 +22,53 @@
  * or FITNESS FOR A PARTICULAR PURPOSE.
  *
  *
- * [Title]    keypad control led light
- * [diagram]
- *         Arduino PIN 11  ===================  led control gpio
- *         Arduino PIN 7   ===================  keypad pin
+ * [Title]:   RGB breathing light
+ * [Diagram]
+ *         Arduino PIN 11   ===================  RGB pin1 red
+ *         Arduino PIN 10  ===================   RGB pin3 green
+ *         Arduino PIN 9  ===================    RGB pin4 blue
+ *         Arduino GND     ===================   RGB pin2  GND
+ *
  */
-int led_out = 11 ;  //GPIO 11  LED pin
-int keypad_pin = 7; //GPIO 7 key pin
-int value;
+#define RGB_RED    11
+#define RGB_GREEN  10
+#define RGB_BLUE   9
+
 void setup()
 {
-  pinMode(led_out,OUTPUT);    		// init led pin output
-  pinMode(keypad_pin,INPUT);          // init key pin input
+    pinMode(RGB_RED,OUTPUT);
+    pinMode(RGB_GREEN,OUTPUT);
+    pinMode(RGB_BLUE,OUTPUT);
 }
+
+void setColor(int red,int green,int blue)
+{
+    analogWrite(RGB_RED,red);
+    analogWrite(RGB_GREEN,green);
+    analogWrite(RGB_BLUE,blue);
+}
+
 void loop()
 {
-  value = digitalRead(keypad_pin);    // read key pad pin vaule
-  if( value == LOW )
+    int i;
+    for (i=0; i<256; i++)
     {
-      digitalWrite(led_out,LOW);      // if key value is down  turn off LED
+        setColor(i, 0, 0);
+        delay(4);
     }
-    else
-      {
-        digitalWrite(led_out,HIGH);     // if key value is down  turn on LED
-      }
+    delay(500);           //turn the RGB LED red smoth
+
+    for (i=0; i < 256; i++)
+    {
+        setColor(0, i, 0);
+        delay(4);
+    }
+    delay(500);           //turn the RGB LED green smoth
+
+    for (i=0; i < 256; i++)
+    {
+        setColor(0, 0, i);
+        delay(4);
+    }
+    delay(100);           //turn the RGB LED blue smoth
 }

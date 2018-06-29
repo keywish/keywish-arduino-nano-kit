@@ -22,28 +22,39 @@
  * or FITNESS FOR A PARTICULAR PURPOSE.
  *
  *
- * [Title]    keypad control led light
+ * [Title]    fire sensor control buzzer turn on/off
  * [diagram]
- *         Arduino PIN 11  ===================  led control gpio
- *         Arduino PIN 7   ===================  keypad pin
+ *         Arduino PIN 5   ===================  fire sensor pin
+ *         Arduino PIN 9   ===================  Active buzzer positive pole
  */
-int led_out = 11 ;  //GPIO 11  LED pin
-int keypad_pin = 7; //GPIO 7 key pin
-int value;
+
+int fire_pin = A5;     // define analog 5 pin for fire-sensor pin
+int buzzer = 9;        // buzzer dirver pin
+int val = 0;
+int count = 0;
 void setup()
 {
-  pinMode(led_out,OUTPUT);    		// init led pin output
-  pinMode(keypad_pin,INPUT);          // init key pin input
+    pinMode(buzzer,OUTPUT);        // buzzer pin is output
+    pinMode(fire_pin,INPUT);       // fire-sensor pin is input
+    Serial.begin(115200);          // init baud rate is 115200
+    digitalWrite(buzzer,LOW);      // buzzer default value is 0
 }
 void loop()
 {
-  value = digitalRead(keypad_pin);    // read key pad pin vaule
-  if( value == LOW )
+    val = analogRead(fire_pin);    // get fire-sensor analog value
+    Serial.println(val);
+    if ( val < 600 )                // get value > 600 counet add
     {
-      digitalWrite(led_out,LOW);      // if key value is down  turn off LED
+        count++;
     }
-    else
-      {
-        digitalWrite(led_out,HIGH);     // if key value is down  turn on LED
-      }
+    else {
+       count = 0;
+    }
+    if( count >= 5 )              // count > 5 ensure infrared radiation found and give an alarm
+    {
+        digitalWrite(buzzer, HIGH);
+    } else {
+        digitalWrite(buzzer, LOW);   // disable an alarm
+    }
+    delay(500);
 }
