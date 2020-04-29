@@ -1,6 +1,9 @@
 # Please Contact Us
-Technical support email: baron@keywish-robot.com; ken@keywish-robot.com</br>
-Sales email: cici@keywish-robot.com</br>
+# Please Contact Us
+Technical support email: support@emakefun.com  
+Technical support email: support@keywish-robot.com </br>
+Sales email: ken@keywish-robot.com  </br>
+
 The latest information download address:https://github.com/keywish/arduino-nano-kit
 
 # Nano-kit Feature
