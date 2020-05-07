@@ -1,9 +1,7 @@
 # Please Contact Us
-Technical support email: support@emakefun.com  
-Technical support email: support@keywish-robot.com </br>
-Sales email: ken@keywish-robot.com  </br>
-
-The latest information download address:https://github.com/keywish/arduino-nano-kit
+Technical support email: support@emakefun.com</br>
+Sales email: ken@emakefun.com</br>
+The latest information download address:https://github.com/keywish/keywish-arduino-nano-kit  </br>
 
 # Nano-kit Feature
 `*Keywish Nano Kit is a super starter kit based on Nano V3.0 Micro-controller board，It has 60pcs components with detailed tutorial in a CD including project introduction and source code`</br>
